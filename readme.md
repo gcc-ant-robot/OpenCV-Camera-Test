@@ -1,7 +1,14 @@
 # Raspberry Pi Image Pipeline
 Jan 30th, 2019
 
-**Blog Post on Threaded Camera Polling:** [https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/](https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/). This guide shows how to use threading to reduce I/O latency between us and the camera.
+## TODO:
+1. [ ] Test FPS while saving images to disk.
+2. [ ] Implement LaserDot RasterScan for benchmark.
+3. [ ] Create I2C or serial comm link between RPi and myRIO.
+
+## Important Links
+* **Blog Post on Threaded Camera Polling:** [https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/](https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/). This guide shows how to use threading to reduce I/O latency between us and the camera.
+* [Camera Module](https://www.amazon.com/gp/product/B012V1HEP4/ref=ppx_yo_dt_b_asin_title_o00__o00_s01?ie=UTF8&psc=1): Notice that this is not an official RPi component. 
 
 ## Notes:
 * When installing `picamera` on the Pi, **use** `$ pip install "picamera[array]"`.  The `[array]` portion enables us to [grab frames from the camera as NumPy arrays](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)!
