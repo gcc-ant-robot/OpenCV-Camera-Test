@@ -35,4 +35,40 @@ Jan 30th, 2019
 	> ```
 	> “From there, we initialize our PiCamera object on Line 8 and grab a reference to the raw capture component on Line 9. This rawCapture  object is especially useful since it (1) gives us direct access to the camera stream and (2) avoids the expensive compression to JPEG format, which we would then have to take and decode to OpenCV format anyway. I highly recommend that you use PiRGBArray  whenever you need to access the Raspberry Pi camera — the performance gains are well worth it.”
 
-* 
+* I ended up finding the source code of the blog post: [Source](./blog_code/ "Source Code in Repo"). Note that when installing `OpenCV` for the Raspberry Pi, you **must use an ARM **version.  Instead of compiling mine own from source, I [added piwheels to my pip config](https://www.piwheels.org).  Then, I was able to install OpenCV with the following command: `$ pip install opencv-contrib-python`.  **Note that I changed to Python 3.5** as PiWheels did not have precompiled support for OpenCV with Python 2.7.
+* I tried testing with `$ python picamera_fps_demo.py ` but was receiving errors related to low level dev objects “No shared object,” etc.  I found the [following](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/) which helped: 
+	> “On the Raspberry PI I kept receiving errors when I would import cv2 in python3.
+	> It would say: ImportError: libcblas.so.3: cannot open shared object file: No such file or directory
+	> I did find the fix for it here: https://github.com/amymcgovern/pyparrot/issues/34#issuecomment-379557137
+	> I had to install these dependencies:
+	> ```bash
+	> sudo apt-get install libatlas-base-dev
+	> sudo apt-get install libjasper-dev
+	> sudo apt-get install libqtgui4
+	> sudo apt-get install python3-pyqt5
+	> ```
+	> ” - [https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
+
+
+##### First Results:
+```bash
+(env_python3) pi@pi3:~/Desktop/cam_test/blog_code $ python picamera_fps_demo.py
+[INFO] sampling frames from `picamera` module...
+[INFO] elasped time: 3.43
+[INFO] approx. FPS: 29.47
+[INFO] sampling THREADED frames from `picamera` module...
+[INFO] elasped time: 0.40
+[INFO] approx. FPS: 249.15
+```
+
+The Following Results were obtained while connected to the Pi over VNC from the Pi’s internal terminal.  Note that the resolution of each image is only **320x240**.  We will need to increase that.
+```bash
+(env_python3) pi@pi3:~/Desktop/cam_test/blog_code $ python picamera_fps_demo.py -d 1 -n 1000
+[INFO] sampling frames from `picamera` module...
+[INFO] elasped time: 33.50
+[INFO] approx. FPS: 29.88
+[INFO] sampling THREADED frames from `picamera` module...
+[INFO] elasped time: 9.33
+[INFO] approx. FPS: 107.20
+
+```
