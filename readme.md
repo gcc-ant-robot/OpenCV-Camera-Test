@@ -3,8 +3,8 @@ Jan 30th, 2019
 
 ## TODO:
 1. [ ] Test FPS while saving images to disk.
-2. [ ] Implement LaserDot RasterScan for benchmark.
-3. [ ] Create I2C or serial comm link between RPi and myRIO.
+2. [ ] Implement LaserDot RasterScan for benchmark. (we can compare to laser tracking results from Spring 2018)
+3. [ ] Create I2C or serial comm link between RPi and myRIO. Unidirectional transmission of error vector.  Involves LabVIEW for myRIO side and Python function on RPi side.
 
 ## Important Links
 * **Blog Post on Threaded Camera Polling:** [https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/](https://www.pyimagesearch.com/2015/12/28/increasing-raspberry-pi-fps-with-python-and-opencv/). This guide shows how to use threading to reduce I/O latency between us and the camera.
