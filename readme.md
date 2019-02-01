@@ -8,6 +8,8 @@ Jan 30th, 2019
 * [https://github.com/theostangebye/cam\_test](https://github.com/theostangebye/cam_test)
 * When installing `picamera` on the Pi, **use** `$ pip install "picamera[array]"`.  The `[array]` portion enables us to [grab frames from the camera as NumPy arrays](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/)!
 
+* According to the following [Forum Post](https://www.raspberrypi.org/forums/viewtopic.php?t=85899), we will likely get better performance using the Raspberry Pi's Camera Board vs. using a USB Webcam.
+
 ##### Importance of Using NumPy Arrays
 * The following explains why we want to access camera data as NumPy arrays.  Essentially, **NumPy arrays avoid expensive JPEG compression**.
 	> Here is an example of polling the camera for a single frame: [Source](https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/). The article continues to show how to access video frames at ~30fps.  However, we are going to continue with the “Experiment Guide” listed above in order to attain higher framerates through threading.
