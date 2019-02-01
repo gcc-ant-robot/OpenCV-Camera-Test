@@ -23,9 +23,9 @@ args = vars(ap.parse_args())
 
 # initialize the camera and stream
 camera = PiCamera()
-camera.resolution = (320, 240)
+camera.resolution = (1920, 1080)
 camera.framerate = 32
-rawCapture = PiRGBArray(camera, size=(320, 240))
+rawCapture = PiRGBArray(camera, size=(1920, 1080))
 stream = camera.capture_continuous(rawCapture, format="bgr",
 	use_video_port=True)
 
@@ -37,9 +37,9 @@ fps = FPS().start()
 # loop over some frames
 for (i, f) in enumerate(stream):
 	# grab the frame from the stream and resize it to have a maximum
-	# width of 400 pixels
+	# width of 2000 pixels
 	frame = f.array
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, width=2000)
 
 	# check to see if the frame should be displayed to our screen
 	if args["display"] > 0:
@@ -76,9 +76,9 @@ fps = FPS().start()
 # loop over some frames...this time using the threaded stream
 while fps._numFrames < args["num_frames"]:
 	# grab the frame from the threaded video stream and resize it
-	# to have a maximum width of 400 pixels
+	# to have a maximum width of 2000 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, width=2000)
 
 	# check to see if the frame should be displayed to our screen
 	if args["display"] > 0:
