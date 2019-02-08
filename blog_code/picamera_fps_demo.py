@@ -12,6 +12,9 @@ import argparse
 import imutils
 import time
 import cv2
+import pdb
+
+index=0;
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -24,7 +27,7 @@ args = vars(ap.parse_args())
 # initialize the camera and stream
 camera = PiCamera()
 camera.resolution = (1920, 1080)
-camera.framerate = 32
+camera.framerate = 10
 rawCapture = PiRGBArray(camera, size=(1920, 1080))
 stream = camera.capture_continuous(rawCapture, format="bgr",
 	use_video_port=True)
@@ -41,6 +44,9 @@ for (i, f) in enumerate(stream):
 	frame = f.array
 	frame = imutils.resize(frame, width=2000)
 
+	cv2.imwrite("/home/pi/Downloads/numpysave/norm/img" + str(index) + 
+		".tiff", frame)
+
 	# check to see if the frame should be displayed to our screen
 	if args["display"] > 0:
 		cv2.imshow("Frame", frame)
@@ -50,6 +56,8 @@ for (i, f) in enumerate(stream):
 	# the FPS counter
 	rawCapture.truncate(0)
 	fps.update()
+
+	index+=1
 
 	# check to see if the desired number of frames have been reached
 	if i == args["num_frames"]:
@@ -79,14 +87,21 @@ while fps._numFrames < args["num_frames"]:
 	# to have a maximum width of 2000 pixels
 	frame = vs.read()
 	frame = imutils.resize(frame, width=2000)
+	cv2.imwrite("/home/pi/Downloads/numpysave/threaded/img" + str(index) + 
+		".tiff", frame)
+
+	# pdb.set_trace()
 
 	# check to see if the frame should be displayed to our screen
 	if args["display"] > 0:
 		cv2.imshow("Frame", frame)
 		key = cv2.waitKey(1) & 0xFF
+		print("[INFO] displaying image")
 
 	# update the FPS counter
 	fps.update()
+
+	index+=1
 
 # stop the timer and display FPS information
 fps.stop()
