@@ -9,6 +9,7 @@ from imutils.video import FPS
 import argparse
 import imutils
 import cv2
+import pdb
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -21,6 +22,9 @@ args = vars(ap.parse_args())
 # grab a pointer to the video stream and initialize the FPS counter
 print("[INFO] sampling frames from webcam...")
 stream = cv2.VideoCapture(0)
+pdb.set_trace()
+stream.set(3,1920)
+stream.set(4,1080)
 fps = FPS().start()
 
 # loop over some frames
