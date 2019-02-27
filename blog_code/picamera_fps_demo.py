@@ -24,7 +24,7 @@ args = vars(ap.parse_args())
 # created a *threaded *video stream, allow the camera sensor to warmup,
 # and start the FPS counter
 print("[INFO] sampling THREADED frames from `picamera` module...")
-vs = PiVideoStream(resolution=(1920,1080), framerate=32).start()
+vs = PiVideoStream(resolution=(1280,720), framerate=10).start()
 time.sleep(2.0)
 fps = FPS().start()
 
@@ -33,7 +33,11 @@ while fps._numFrames < args["num_frames"]:
 	# grab the frame from the threaded video stream and resize it
 	# to have a maximum width of 2000 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=2000)
+	frame = imutils.resize(frame, width=1280)
+
+	savePath = 'frame' + str(fps._numFrames) + '.bmp'
+	# pdb.set_trace()
+	cv2.imwrite(savePath, frame)
 
 	# update the FPS counter
 	fps.update()
