@@ -55,3 +55,7 @@ Jan 30th, 2019
 	> sudo apt-get install python3-pyqt5
 	> ```
 	> ” - [https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
+
+
+### Notes
+`Cam_Test/` is a test of **ffmpeg** with the senior design camera on RPi3

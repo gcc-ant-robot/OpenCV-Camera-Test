@@ -1,2 +1,7 @@
 env
 env_python3
+*.h264
+*.jpg
+*.avi
+*.bmp
+*.tiff
