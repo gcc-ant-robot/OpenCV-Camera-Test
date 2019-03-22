@@ -1,3 +1,14 @@
+## FFMPEG Recording Command
+Below documents my process of finding an ideal FFMPEG command to accomplish 15 fps 720p video recording on our Odroid.  For ease of access, my final command is copied here:
+
+> **Here is my final command** (for now), which limits framerate to 25 fps.  Note that the `-q` flag can be increased to higher values (decrease in image quality) to increase image throughput: 
+```bash
+odroid@odroid:~/Desktop$ ffmpeg -r 25 -input_format mjpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -q 5 mpegq=5_r=25.mpeg
+```
+##### TODO:
+I would like to explore the information on [this page](https://stackoverflow.com/questions/23067722/swscaler-warning-deprecated-pixel-format-used) in order to solve the "depreciated pixel format" warning.
+
+----
 do `$v4l2-ctl --all` to show available cam device.
 
 Note that for me, I get a device busy error about half of the time - which seems fishy to me.  When the commadn does work, I get this:
@@ -184,7 +195,8 @@ ioctl: VIDIOC_ENUM_FMT
 ```
 
 **This gives decent results: ** `odroid@odroid:~/Desktop$ ffmpeg -input_format mjpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -q 5 mpegq=5.mpeg`
-
+----
+## FFMPEG Recording Command
 > **Here is my final command** (for now), which limits framerate to 25 fps.  Note that the `-q` flag can be increased to higher values (decrease in image quality) to increase image throughput: 
 ```bash
 odroid@odroid:~/Desktop$ ffmpeg -r 25 -input_format mjpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -q 5 mpegq=5_r=25.mpeg
