@@ -133,3 +133,62 @@ ffmpeg version 3.4.2-2ubuntu4 Copyright (c) 2000-2018 the FFmpeg developers
 [video4linux2,v4l2 @ 0x4927b0] Compressed:       mjpeg :          Motion-JPEG : 1920x1080 1280x720 640x480
 
 ```
+
+You can also see the camera's file abilities here:
+```bash
+odroid@odroid:~/Desktop$ v4l2-ctl --list-formats-ext
+ioctl: VIDIOC_ENUM_FMT
+	Index       : 0
+	Type        : Video Capture
+	Pixel Format: 'YUYV'
+	Name        : YUYV 4:2:2
+		Size: Discrete 2592x1944
+			Interval: Discrete 0.133s (7.500 fps)
+			Interval: Discrete 0.267s (3.750 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.067s (15.000 fps)
+			Interval: Discrete 0.133s (7.500 fps)
+		Size: Discrete 1280x960
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 640x480
+			Interval: Discrete 0.008s (120.000 fps)
+			Interval: Discrete 0.011s (90.000 fps)
+			Interval: Discrete 0.017s (60.000 fps)
+			Interval: Discrete 0.033s (30.000 fps)
+		Size: Discrete 320x240
+			Interval: Discrete 0.008s (120.000 fps)
+			Interval: Discrete 0.011s (90.000 fps)
+			Interval: Discrete 0.017s (60.000 fps)
+			Interval: Discrete 0.033s (30.000 fps)
+
+	Index       : 1
+	Type        : Video Capture
+	Pixel Format: 'MJPG' (compressed)
+	Name        : Motion-JPEG
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.022s (45.000 fps)
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 640x480
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+
+
+```
+
+**This gives decent results: ** `odroid@odroid:~/Desktop$ ffmpeg -input_format mjpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -q 5 mpegq=5.mpeg`
+
+> **Here is my final command** (for now), which limits framerate to 25 fps.  Note that the `-q` flag can be increased to higher values (decrease in image quality) to increase image throughput: 
+```bash
+odroid@odroid:~/Desktop$ ffmpeg -r 25 -input_format mjpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -q 5 mpegq=5_r=25.mpeg
+```
+
+I would like to explore the information on [this page](https://stackoverflow.com/questions/23067722/swscaler-warning-deprecated-pixel-format-used) in order to solve the "depreciated pixel format" warning.
+
