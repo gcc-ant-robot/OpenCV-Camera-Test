@@ -64,7 +64,7 @@ while fps._numFrames < args["num_frames"]:
 		row = result[0][0]
 		col = result[1][0]
 
-		print('First Maximum Value of ', max_val, ' Located at: ', row, ', ', col)
+# 		print('First Maximum Value of ', max_val, ' Located at: ', row, ', ', col)
 		                
     # update the FPS counter
 	fps.update()
