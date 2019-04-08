@@ -87,33 +87,8 @@ vs.stop()
 
 ### Odroid: 
 * Record images (jpeg 1280x720):
-```bash
-(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
-[INFO] sampling THREADED frames from webcam...
-VIDEOIO ERROR: V4L: can't open camera by index 0
-Traceback (most recent call last):
-  File "cam_benchmark.py", line 35, in <module>
-	frame = imutils.resize(frame, width=1280)
-  File "/home/odroid/.virtualenvs/cv/lib/python3.6/site-packages/imutils/convenience.py", line 69, in resize
-	(h, w) = image.shape[:2]
-AttributeError: 'NoneType' object has no attribute 'shape'
-rm: cannot remove 'images/*': No such file or directory
-[INFO] sampling THREADED frames from webcam...
-[INFO] elasped time: 30.14
-[INFO] approx. FPS: 16.59
-[INFO] sampling THREADED frames from webcam...
-[INFO] elasped time: 32.29
-[INFO] approx. FPS: 15.49
-[INFO] sampling THREADED frames from webcam...
-[INFO] elasped time: 29.19
-[INFO] approx. FPS: 17.13
-[INFO] sampling THREADED frames from webcam...
-[INFO] elasped time: 37.63
-[INFO] approx. FPS: 13.29
-(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$
-```
 		 
-```
+```bash
 (cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
 rm: cannot remove 'images/*': No such file or directory
 [INFO] sampling THREADED frames from webcam...
