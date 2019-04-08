@@ -88,116 +88,118 @@ vs.stop()
 ### Odroid: 
 * Record images (jpeg 1280x720):
 ```bash
-		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
-		[INFO] sampling THREADED frames from webcam...
-		VIDEOIO ERROR: V4L: can't open camera by index 0
-		Traceback (most recent call last):
-		  File "cam_benchmark.py", line 35, in <module>
-			frame = imutils.resize(frame, width=1280)
-		  File "/home/odroid/.virtualenvs/cv/lib/python3.6/site-packages/imutils/convenience.py", line 69, in resize
-			(h, w) = image.shape[:2]
-		AttributeError: 'NoneType' object has no attribute 'shape'
-		rm: cannot remove 'images/*': No such file or directory
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 30.14
-		[INFO] approx. FPS: 16.59
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 32.29
-		[INFO] approx. FPS: 15.49
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 29.19
-		[INFO] approx. FPS: 17.13
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 37.63
-		[INFO] approx. FPS: 13.29
-		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$
-		```
+(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
+[INFO] sampling THREADED frames from webcam...
+VIDEOIO ERROR: V4L: can't open camera by index 0
+Traceback (most recent call last):
+  File "cam_benchmark.py", line 35, in <module>
+	frame = imutils.resize(frame, width=1280)
+  File "/home/odroid/.virtualenvs/cv/lib/python3.6/site-packages/imutils/convenience.py", line 69, in resize
+	(h, w) = image.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+rm: cannot remove 'images/*': No such file or directory
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 30.14
+[INFO] approx. FPS: 16.59
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 32.29
+[INFO] approx. FPS: 15.49
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 29.19
+[INFO] approx. FPS: 17.13
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 37.63
+[INFO] approx. FPS: 13.29
+(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$
+```
 		 
-		```
-		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
-		rm: cannot remove 'images/*': No such file or directory
-		[INFO] sampling THREADED frames from webcam...
-		VIDEOIO ERROR: V4L: can't open camera by index 0
-		Traceback (most recent call last):
-		  File "cam_benchmark.py", line 41, in <module>
-			frame = imutils.resize(frame, width=1280)
-		  File "/home/odroid/.virtualenvs/cv/lib/python3.6/site-packages/imutils/convenience.py", line 69, in resize
-			(h, w) = image.shape[:2]
-		AttributeError: 'NoneType' object has no attribute 'shape'
-		rm: cannot remove 'images/*': No such file or directory
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 32.44
-		[INFO] approx. FPS: 15.41
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 35.28
-		[INFO] approx. FPS: 14.17
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 34.27
-		[INFO] approx. FPS: 14.59
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 33.67
-		[INFO] approx. FPS: 14.85
+```
+(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
+rm: cannot remove 'images/*': No such file or directory
+[INFO] sampling THREADED frames from webcam...
+VIDEOIO ERROR: V4L: can't open camera by index 0
+Traceback (most recent call last):
+  File "cam_benchmark.py", line 41, in <module>
+	frame = imutils.resize(frame, width=1280)
+  File "/home/odroid/.virtualenvs/cv/lib/python3.6/site-packages/imutils/convenience.py", line 69, in resize
+	(h, w) = image.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+rm: cannot remove 'images/*': No such file or directory
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 32.44
+[INFO] approx. FPS: 15.41
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 35.28
+[INFO] approx. FPS: 14.17
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 34.27
+[INFO] approx. FPS: 14.59
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 33.67
+[INFO] approx. FPS: 14.85
 ```
 * Find Brightest Dot: 
 ```bash
-		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 13.00
-		[INFO] approx. FPS: 38.45
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 12.38
-		[INFO] approx. FPS: 40.38
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 12.66
-		[INFO] approx. FPS: 39.49
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 13.20
-		[INFO] approx. FPS: 37.88
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 12.82
-		[INFO] approx. FPS: 38.99
+(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 13.00
+[INFO] approx. FPS: 38.45
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 12.38
+[INFO] approx. FPS: 40.38
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 12.66
+[INFO] approx. FPS: 39.49
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 13.20
+[INFO] approx. FPS: 37.88
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 12.82
+[INFO] approx. FPS: 38.99
 ```
 ### RPI:
 * Record images (jpeg 1280x720):
-		> Below suggests ~12 FPS.  However, I think that we get closer to 15 FPS depending on the complexity of the image and the temperature of the RPi. (thermals)
+
+> Below suggests ~12 FPS.  However, I think that we get closer to 15 FPS depending on the complexity of the image and the temperature of the RPi. (thermals)
+
 ```bash
-		(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 40.19
-		[INFO] approx. FPS: 12.44
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 38.83
-		[INFO] approx. FPS: 12.88
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 39.76
-		[INFO] approx. FPS: 12.57
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 41.10
-		[INFO] approx. FPS: 12.17
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 38.64
-		[INFO] approx. FPS: 12.94
-		(env_python3) pi@pi3:~/Desktop/cam_test $
+(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 40.19
+[INFO] approx. FPS: 12.44
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 38.83
+[INFO] approx. FPS: 12.88
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 39.76
+[INFO] approx. FPS: 12.57
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 41.10
+[INFO] approx. FPS: 12.17
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 38.64
+[INFO] approx. FPS: 12.94
+(env_python3) pi@pi3:~/Desktop/cam_test $
 ```
 * Find Brightest Dot: 
 ```bash
-		(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 8.95
-		[INFO] approx. FPS: 55.89
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 9.02
-		[INFO] approx. FPS: 55.41
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 8.95
-		[INFO] approx. FPS: 55.88
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 9.04
-		[INFO] approx. FPS: 55.32
-		[INFO] sampling THREADED frames from webcam...
-		[INFO] elasped time: 8.94
-		[INFO] approx. FPS: 55.94
-		(env_python3) pi@pi3:~/Desktop/cam_test $
+(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 8.95
+[INFO] approx. FPS: 55.89
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 9.02
+[INFO] approx. FPS: 55.41
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 8.95
+[INFO] approx. FPS: 55.88
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 9.04
+[INFO] approx. FPS: 55.32
+[INFO] sampling THREADED frames from webcam...
+[INFO] elasped time: 8.94
+[INFO] approx. FPS: 55.94
+(env_python3) pi@pi3:~/Desktop/cam_test $
 ```
 ### Ant Robot
 	* Record images (jpeg 1280x720):
