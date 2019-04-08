@@ -114,6 +114,7 @@ rm: cannot remove 'images/*': No such file or directory
 [INFO] approx. FPS: 14.85
 ```
 * Find Brightest Dot: 
+
 ```bash
 (cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
 [INFO] sampling THREADED frames from webcam...
@@ -157,6 +158,7 @@ rm: cannot remove 'images/*': No such file or directory
 (env_python3) pi@pi3:~/Desktop/cam_test $
 ```
 * Find Brightest Dot: 
+
 ```bash
 (env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
 [INFO] sampling THREADED frames from webcam...
