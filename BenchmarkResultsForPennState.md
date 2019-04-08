@@ -113,6 +113,9 @@ rm: cannot remove 'images/*': No such file or directory
 [INFO] elasped time: 33.67
 [INFO] approx. FPS: 14.85
 ```
+
+> ODroid Record: 14.76 FPS
+
 * Find Brightest Dot: 
 
 ```bash
@@ -133,6 +136,9 @@ rm: cannot remove 'images/*': No such file or directory
 [INFO] elasped time: 12.82
 [INFO] approx. FPS: 38.99
 ```
+
+> ODroid Find Dot: 39.04 FPS
+
 ### RPI:
 * Record images (jpeg 1280x720):
 
@@ -157,6 +163,9 @@ rm: cannot remove 'images/*': No such file or directory
 [INFO] approx. FPS: 12.94
 (env_python3) pi@pi3:~/Desktop/cam_test $
 ```
+
+> RPi Record: 12.60 FPS
+
 * Find Brightest Dot: 
 
 ```bash
@@ -178,6 +187,9 @@ rm: cannot remove 'images/*': No such file or directory
 [INFO] approx. FPS: 55.94
 (env_python3) pi@pi3:~/Desktop/cam_test $
 ```
+
+> RPi Find Dot: 55.68 FPS
+
 ### Ant Robot
 * Record images (jpeg 640x480): 4 FPS
 * Find Brightest Dot: 10 FPS
