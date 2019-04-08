@@ -1,6 +1,6 @@
 # Benchmark Results:
 
-> **USING THIS COMMIT: ** [https://github.com/gcc-ant-robot/OpenCV-Camera-Test/commit/62edf8fadf2c447f4b94a16c5775a5e5e1a818e5](https://github.com/gcc-ant-robot/OpenCV-Camera-Test/commit/62edf8fadf2c447f4b94a16c5775a5e5e1a818e5)
+> **USING THIS COMMIT:** [https://github.com/gcc-ant-robot/OpenCV-Camera-Test/commit/62edf8fadf2c447f4b94a16c5775a5e5e1a818e5](https://github.com/gcc-ant-robot/OpenCV-Camera-Test/commit/62edf8fadf2c447f4b94a16c5775a5e5e1a818e5)
 
 ```python
 # USAGE
@@ -86,8 +86,8 @@ vs.stop()
 
 
 ### Odroid: 
-	* Record images (jpeg 1280x720):
-		```bash
+* Record images (jpeg 1280x720):
+```bash
 		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
 		[INFO] sampling THREADED frames from webcam...
 		VIDEOIO ERROR: V4L: can't open camera by index 0
@@ -137,9 +137,9 @@ vs.stop()
 		[INFO] sampling THREADED frames from webcam...
 		[INFO] elasped time: 33.67
 		[INFO] approx. FPS: 14.85
-		```
-	* Find Brightest Dot: 
-		```bash
+```
+* Find Brightest Dot: 
+```bash
 		(cv) odroid@odroid:~/Desktop/OpenCV-Camera-Test$ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
 		[INFO] sampling THREADED frames from webcam...
 		[INFO] elasped time: 13.00
@@ -156,11 +156,11 @@ vs.stop()
 		[INFO] sampling THREADED frames from webcam...
 		[INFO] elasped time: 12.82
 		[INFO] approx. FPS: 38.99
-		```
+```
 ### RPI:
-	* Record images (jpeg 1280x720):
+* Record images (jpeg 1280x720):
 		> Below suggests ~12 FPS.  However, I think that we get closer to 15 FPS depending on the complexity of the image and the temperature of the RPi. (thermals)
-		```bash
+```bash
 		(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do rm images/*; python cam_benchmark.py -n 500 -s 1; done
 		[INFO] sampling THREADED frames from webcam...
 		[INFO] elasped time: 40.19
@@ -178,9 +178,9 @@ vs.stop()
 		[INFO] elasped time: 38.64
 		[INFO] approx. FPS: 12.94
 		(env_python3) pi@pi3:~/Desktop/cam_test $
-		```
-	* Find Brightest Dot: 
-		```bash
+```
+* Find Brightest Dot: 
+```bash
 		(env_python3) pi@pi3:~/Desktop/cam_test $ for i in {1..5}; do python cam_benchmark.py -n 500 -b 1; done
 		[INFO] sampling THREADED frames from webcam...
 		[INFO] elasped time: 8.95
@@ -198,7 +198,7 @@ vs.stop()
 		[INFO] elasped time: 8.94
 		[INFO] approx. FPS: 55.94
 		(env_python3) pi@pi3:~/Desktop/cam_test $
-		```
+```
 ### Ant Robot
 	* Record images (jpeg 1280x720):
 	* Find Brightest Dot: 
