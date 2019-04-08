@@ -179,5 +179,5 @@ rm: cannot remove 'images/*': No such file or directory
 (env_python3) pi@pi3:~/Desktop/cam_test $
 ```
 ### Ant Robot
-	* Record images (jpeg 1280x720):
-	* Find Brightest Dot: 
+* Record images (jpeg 640x480): 4 FPS
+* Find Brightest Dot: 10 FPS
