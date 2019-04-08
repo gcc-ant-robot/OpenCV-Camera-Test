@@ -10,6 +10,7 @@ import argparse
 import imutils
 import cv2
 import pdb
+import numpy as np
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -19,6 +20,8 @@ ap.add_argument("-d", "--display", type=int, default=-1,
 	help="Whether or not frames should be displayed")
 ap.add_argument("-s", "--save-frames", type=int, default=-1,
 	help="# Whether or not to save image frames to ./images/")
+ap.add_argument("-b", "--brightest-pixel", type=int, default=-1,
+    help="# Whether or not to find location of brightest pixel")
 args = vars(ap.parse_args())
 
 # created a *threaded *video stream, allow the camera senor to warmup,
@@ -26,7 +29,7 @@ args = vars(ap.parse_args())
 print("[INFO] sampling THREADED frames from webcam...")
 vs = WebcamVideoStream(src=0).start()
 fps = FPS().start()
-
+i = 0      #Only for testing brightest_pixel logic
 # loop over some frames...this time using the threaded stream
 while fps._numFrames < args["num_frames"]:
 	# grab the frame from the threaded video stream and resize it
@@ -41,8 +44,31 @@ while fps._numFrames < args["num_frames"]:
 
 	if args["save_frames"] > 0:
 		cv2.imwrite(("./images/img"+ str(fps._numFrames)+".jpg"), frame)
-
-	# update the FPS counter
+                        
+	if args["brightest_pixel"] > 0:			
+		if i == 0:
+			size = np.transpose(frame.shape) #Horizontal dimension array 
+			decVal = 3	#Number of interval of row to keep in decimating
+			dec_frame = np.empty((size[0]//decVal, size[1])) #Just considering as a 2D matrix (not 3D)
+			j = 0 #change to i
+			ran = range(0, (size[0] -size[0]%decVal) -1, decVal)  #Calculates rows to keep in decimating
+			for r in ran:
+				k = 0 #change to j
+				for c in range (0, size[1]-1):
+					dec_frame.itemset((j, k), frame[r, c, 0])  #Fills dec_frame in with all column values from selected rows
+					k+=1
+				j+=1
+			print("Input frame size: " + str(frame.shape))		
+			print("Decimated frame size using one of every "+ str(decVal) + " rows: " + str(dec_frame.shape))
+			
+			indices = np.where(dec_frame == dec_frame.max())  #Finds indices of maximum pixel values (generally are multiple)
+			row = indices[0]
+			column = indices[1]
+			max_pixel = [row[0], column[0]]    #Selects only the first max pixel to output
+			print(max_pixel) #is index for decimated image, not full image
+			#i += 1
+		                
+        # update the FPS counter
 	fps.update()
 
 # stop the timer and display FPS information
