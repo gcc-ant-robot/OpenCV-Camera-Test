@@ -1,3 +1,13 @@
+# An Update
+May 18th, 2019
+
+This smester, we compared the Raspberry Pi 3 and the Odroid Xu4 and were able to obtain results comparing the two systems' ability to 1. record video and 2. find the brightest pixel in an image.
+
+To see our reults for the Sigma Xi competition, see https://github.com/gcc-ant-robot/OpenCV-Camera-Test/blob/master/BenchmarkResultsForPennState.md
+
+
+> [Onenote Notebook](https://grovecitycollege-my.sharepoint.com/personal/stangebyeto1_gcc_edu/Documents/AntRobotSemester4/)
+
 # Raspberry Pi Image Pipeline
 Jan 30th, 2019
 
